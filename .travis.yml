@@ -5,16 +5,19 @@ cache:
   bundler: true
 
 before_install:
-  - gem install bundler
+  - gem uninstall -v '>= 2' -i $(rvm gemdir)@global -ax bundler || true
+  - gem install bundler -v '< 2'
 
 rvm:
   - 1.9.3
   - 2.0.0
   - 2.1.10
-  - 2.2.9
-  - 2.3.6
-  - 2.4.3
-  - 2.5.0
+  - 2.2.10
+  - 2.3.8
+  - 2.4.10
+  - 2.5.8
+  - 2.6.6
+  - 2.7.2
 
 gemfile:
   - Gemfile
@@ -22,6 +25,10 @@ gemfile:
   - gemfiles/Gemfile-4-1-stable
   - gemfiles/Gemfile-4-2-stable
   - gemfiles/Gemfile-5-0-stable
+  - gemfiles/Gemfile-5-1-stable
+  - gemfiles/Gemfile-5-2-stable
+  - gemfiles/Gemfile-6-0-stable
+  - gemfiles/Gemfile-6-1-stable
   - gemfiles/Gemfile-edge
 
 matrix:
@@ -34,26 +41,95 @@ matrix:
       gemfile: Gemfile
     - rvm: 2.1.10
       gemfile: Gemfile
+    - rvm: 2.2.10
+      gemfile: Gemfile
+    - rvm: 2.3.8
+      gemfile: Gemfile
+    - rvm: 2.4.10
+      gemfile: Gemfile
     - rvm: 1.9.3
       gemfile: gemfiles/Gemfile-5-0-stable
+    - rvm: 1.9.3
+      gemfile: gemfiles/Gemfile-5-1-stable
+    - rvm: 1.9.3
+      gemfile: gemfiles/Gemfile-5-2-stable
+    - rvm: 1.9.3
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 1.9.3
+      gemfile: gemfiles/Gemfile-6-1-stable
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile-5-0-stable
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile-5-1-stable
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile-5-2-stable
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 2.0.0
+      gemfile: gemfiles/Gemfile-6-1-stable
     - rvm: 2.1.10
       gemfile: gemfiles/Gemfile-5-0-stable
+    - rvm: 2.1.10
+      gemfile: gemfiles/Gemfile-5-1-stable
+    - rvm: 2.1.10
+      gemfile: gemfiles/Gemfile-5-2-stable
+    - rvm: 2.1.10
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 2.2.10
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 2.4.10
+      gemfile: gemfiles/Gemfile-6-0-stable
+    - rvm: 2.1.10
+      gemfile: gemfiles/Gemfile-6-1-stable
+    - rvm: 2.2.10
+      gemfile: gemfiles/Gemfile-6-1-stable
+    - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-6-1-stable
+    - rvm: 2.4.10
+      gemfile: gemfiles/Gemfile-6-1-stable
     - rvm: 1.9.3
       gemfile: gemfiles/Gemfile-edge
     - rvm: 2.0.0
       gemfile: gemfiles/Gemfile-edge
     - rvm: 2.1.10
       gemfile: gemfiles/Gemfile-edge
-    - rvm: 2.4.3
+    - rvm: 2.2.10
+      gemfile: gemfiles/Gemfile-edge
+    - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-edge
+    - rvm: 2.4.10
+      gemfile: gemfiles/Gemfile-edge
+    - rvm: 2.4.10
       gemfile: gemfiles/Gemfile-4-0-stable
-    - rvm: 2.4.3
+    - rvm: 2.4.10
       gemfile: gemfiles/Gemfile-4-1-stable
-    - rvm: 2.5.0
+    - rvm: 2.5.8
       gemfile: gemfiles/Gemfile-4-0-stable
-    - rvm: 2.5.0
+    - rvm: 2.5.8
       gemfile: gemfiles/Gemfile-4-1-stable
+    - rvm: 2.6.6
+      gemfile: gemfiles/Gemfile-4-0-stable
+    - rvm: 2.6.6
+      gemfile: gemfiles/Gemfile-4-1-stable
+    - rvm: 2.6.6
+      gemfile: gemfiles/Gemfile-4-2-stable
+    - rvm: 2.6.6
+      gemfile: gemfiles/Gemfile-5-0-stable
+    - rvm: 2.6.6
+      gemfile: gemfiles/Gemfile-5-1-stable
+    - rvm: 2.7.2
+      gemfile: gemfiles/Gemfile-4-0-stable
+    - rvm: 2.7.2
+      gemfile: gemfiles/Gemfile-4-1-stable
+    - rvm: 2.7.2
+      gemfile: gemfiles/Gemfile-4-2-stable
+    - rvm: 2.7.2
+      gemfile: gemfiles/Gemfile-5-0-stable
+    - rvm: 2.7.2
+      gemfile: gemfiles/Gemfile-5-1-stable
+
 
 notifications:
   email: false
